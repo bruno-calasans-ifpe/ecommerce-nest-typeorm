@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { ItemOrder } from 'src/item_order/item_order.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity()
 export class Order {
@@ -10,4 +11,10 @@ export class Order {
 
   @Column({ unsigned: true })
   totalValue: number;
+
+  @OneToMany(() => ItemOrder, (itemOrder) => itemOrder.order, {
+    cascade: true,
+    eager: false,
+  })
+  itemOrders: ItemOrder[];
 }

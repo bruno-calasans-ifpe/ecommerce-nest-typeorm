@@ -1,3 +1,4 @@
+import { Order } from 'src/order/order.entity';
 import { Product } from 'src/product/product.entity';
 import {
   Entity,
@@ -28,4 +29,12 @@ export class ItemOrder {
   })
   @JoinColumn({ name: 'product_id' })
   product: Product;
+
+  @ManyToOne(() => Order, (order) => order.itemOrders, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  @JoinColumn({ name: 'order_id' })
+  order: Order;
 }

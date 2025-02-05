@@ -27,13 +27,13 @@ export class ItemOrderService {
   async get(id: number) {
     return this.itemordereRepository.findOne({
       where: { id },
-      relations: { product: { category: true } },
+      relations: { product: { category: true }, order: true },
     });
   }
 
   async getAll() {
     return this.itemordereRepository.find({
-      relations: { product: { category: true } },
+      relations: { product: { category: true }, order: true },
     });
   }
 }

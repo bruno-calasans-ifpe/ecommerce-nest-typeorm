@@ -14,12 +14,14 @@ import { NotFoundError } from 'src/errors/NotFoundError';
 import { ConflictError } from 'src/errors/ConflictError';
 import { NotModifiedError } from 'src/errors/NotModifiedError';
 import { ProductService } from 'src/product/product.service';
+import { OrderService } from 'src/order/order.service';
 
 @Controller('item-order')
 export class ItemOrderController {
   constructor(
     private readonly itemOrderService: ItemOrderService,
     private readonly productService: ProductService,
+    private readonly orderService: OrderService,
   ) {}
 
   @Get()
@@ -43,17 +45,23 @@ export class ItemOrderController {
 
   @Post()
   async createItemOrder(
-    @Body() data: ItemOrderCreateData & { product_id: string },
+    @Body()
+    data: ItemOrderCreateData & { product_id: string; order_id: string },
   ) {
     const foundProduct = await this.productService.get(+data.product_id);
     if (!foundProduct) throw new NotFoundError('Produto não encontrado');
 
+    const foundOrder = await this.orderService.get(+data.order_id);
+    if (!foundOrder) throw new NotFoundError('Pedido não encontrado');
+
     data.product = foundProduct;
+    data.order = foundOrder;
+
     const createdItemOrder = await this.itemOrderService.create(data);
 
     return {
       message: 'Item Pedido criado com sucesso',
-      itemorder: createdItemOrder,
+      itemOrder: createdItemOrder,
     };
   }
 
@@ -83,7 +91,7 @@ export class ItemOrderController {
 
     return {
       message: 'Item Pedido atualizado com sucesso',
-      itemorder: { ...foundItemOrder, ...data },
+      itemOrder: { ...foundItemOrder, ...data },
     };
   }
 
@@ -101,7 +109,7 @@ export class ItemOrderController {
 
     return {
       message: 'Item Pedido removido com sucesso',
-      itemorder: foundItemOrder,
+      itemOrder: foundItemOrder,
     };
   }
 }

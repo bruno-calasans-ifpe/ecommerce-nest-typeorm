@@ -1,15 +1,15 @@
 
 # GET http://localhost:3000/product
 
-# GET http://localhost:3000/product/1
+GET http://localhost:3000/product/4
 
 # POST  http://localhost:3000/product
 # Content-Type: application/json
 
 # {
-#   "name": "Casaco preto",
-#   "description": "Um casco para aquecer nos dias mais frios",
-#   "price": 500,
+#   "name": "Calça Rasgada",
+#   "description": "Tem um buraco na bunda",
+#   "price": 1000,
 #   "img": "https://cdn-images.farfetch-contents.com/17/62/17/92/17621792_36776691_600.jpg",
 #   "category_id": 1
 # }
