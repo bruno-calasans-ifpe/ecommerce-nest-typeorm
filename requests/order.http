@@ -1,0 +1,24 @@
+
+# GET http://localhost:3000/order
+
+# GET http://localhost:3000/order/1
+
+# POST  http://localhost:3000/order
+# Content-Type: application/json
+
+# {
+#   "date": "01-01-2000",
+#   "totalValue": 1000
+# }
+
+# PUT  http://localhost:3000/order/1
+# Content-Type: application/json
+
+# {
+#   "totalValue": 50000
+# }
+
+
+# DELETE   http://localhost:3000/order/1
+
+
