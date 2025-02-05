@@ -6,6 +6,7 @@ import { ClienteModule } from './client/cliente.module';
 import { AddressModule } from './address/address.module';
 import { ProductModule } from './product/product.module';
 import { OrderModule } from './order/product.module';
+import { ItemOrderModule } from './item_order/item_order.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { OrderModule } from './order/product.module';
     AddressModule,
     ProductModule,
     OrderModule,
+    ItemOrderModule,
   ],
   controllers: [AppController],
   providers: [AppService],

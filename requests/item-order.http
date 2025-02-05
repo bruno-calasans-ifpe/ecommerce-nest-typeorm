@@ -1,0 +1,25 @@
+
+# GET http://localhost:3000/item-order
+
+# GET http://localhost:3000/item-order/1
+
+# POST  http://localhost:3000/item-order
+# Content-Type: application/json
+
+# {
+#   "amount": 2,
+#   "price": 1000,
+#   "totalValue": 2000
+# }
+
+# PUT  http://localhost:3000/item-order/1
+# Content-Type: application/json
+
+# {
+#   "price":3
+# }
+
+
+DELETE   http://localhost:3000/item-order/1
+
+
