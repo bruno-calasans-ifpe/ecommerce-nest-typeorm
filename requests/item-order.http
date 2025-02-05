@@ -7,9 +7,10 @@
 # Content-Type: application/json
 
 # {
-#   "amount": 2,
-#   "price": 1000,
-#   "totalValue": 2000
+#     "amount": 2,
+#     "price": 1000,
+#     "totalValue": 2000,
+#     "product_id": 4
 # }
 
 # PUT  http://localhost:3000/item-order/1
@@ -20,6 +21,6 @@
 # }
 
 
-DELETE   http://localhost:3000/item-order/1
+DELETE   http://localhost:3000/item-order/2
 
 

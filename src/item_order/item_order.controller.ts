@@ -13,10 +13,14 @@ import { InternalServerError } from 'src/errors/InternalServerErrorError';
 import { NotFoundError } from 'src/errors/NotFoundError';
 import { ConflictError } from 'src/errors/ConflictError';
 import { NotModifiedError } from 'src/errors/NotModifiedError';
+import { ProductService } from 'src/product/product.service';
 
 @Controller('item-order')
 export class ItemOrderController {
-  constructor(private readonly itemOrderService: ItemOrderService) {}
+  constructor(
+    private readonly itemOrderService: ItemOrderService,
+    private readonly productService: ProductService,
+  ) {}
 
   @Get()
   getAllItemOrders() {
@@ -38,8 +42,15 @@ export class ItemOrderController {
   }
 
   @Post()
-  async createItemOrder(@Body() data: ItemOrderCreateData) {
+  async createItemOrder(
+    @Body() data: ItemOrderCreateData & { product_id: string },
+  ) {
+    const foundProduct = await this.productService.get(+data.product_id);
+    if (!foundProduct) throw new NotFoundError('Produto não encontrado');
+
+    data.product = foundProduct;
     const createdItemOrder = await this.itemOrderService.create(data);
+
     return {
       message: 'Item Pedido criado com sucesso',
       itemorder: createdItemOrder,

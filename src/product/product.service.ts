@@ -25,7 +25,10 @@ export class ProductService {
   }
 
   async get(id: number) {
-    return this.productRepository.findOne({ where: { id } });
+    return this.productRepository.findOne({
+      where: { id },
+      relations: { itemOrders: true, category: true },
+    });
   }
 
   async getByName(name: string) {
@@ -33,6 +36,8 @@ export class ProductService {
   }
 
   async getAll() {
-    return this.productRepository.find();
+    return this.productRepository.find({
+      relations: { itemOrders: true, category: true },
+    });
   }
 }

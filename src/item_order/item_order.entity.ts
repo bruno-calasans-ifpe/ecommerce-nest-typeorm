@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Product } from 'src/product/product.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity()
 export class ItemOrder {
@@ -13,4 +20,12 @@ export class ItemOrder {
 
   @Column({ unsigned: true })
   totalValue: number;
+
+  @ManyToOne(() => Product, (product) => product.itemOrders, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  @JoinColumn({ name: 'product_id' })
+  product: Product;
 }

@@ -25,10 +25,15 @@ export class ItemOrderService {
   }
 
   async get(id: number) {
-    return this.itemordereRepository.findOne({ where: { id } });
+    return this.itemordereRepository.findOne({
+      where: { id },
+      relations: { product: { category: true } },
+    });
   }
 
   async getAll() {
-    return this.itemordereRepository.find();
+    return this.itemordereRepository.find({
+      relations: { product: { category: true } },
+    });
   }
 }

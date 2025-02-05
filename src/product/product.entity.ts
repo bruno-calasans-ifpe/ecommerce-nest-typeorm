@@ -1,3 +1,4 @@
+import { ItemOrder } from 'src/item_order/item_order.entity';
 import { ProductCategory } from 'src/product_category/product_category.entity';
 import {
   Entity,
@@ -5,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 
 @Entity()
@@ -31,4 +33,10 @@ export class Product {
   })
   @JoinColumn({ name: 'category_id' })
   category: ProductCategory;
+
+  @OneToMany(() => ItemOrder, (itemOrder) => itemOrder.product, {
+    cascade: true,
+    eager: false,
+  })
+  itemOrders: ItemOrder[];
 }
