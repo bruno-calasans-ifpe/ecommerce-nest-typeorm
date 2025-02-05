@@ -10,7 +10,8 @@
 #   "name": "Casaco preto",
 #   "description": "Um casco para aquecer nos dias mais frios",
 #   "price": 500,
-#   "img": "https://cdn-images.farfetch-contents.com/17/62/17/92/17621792_36776691_600.jpg"
+#   "img": "https://cdn-images.farfetch-contents.com/17/62/17/92/17621792_36776691_600.jpg",
+#   "category_id": 1
 # }
 
 # PUT  http://localhost:3000/product/1

@@ -8,31 +8,31 @@ import { ProductCreateData, ProductUpdateData } from './product.dto';
 export class ProductService {
   constructor(
     @InjectRepository(Product)
-    private producteRepository: Repository<Product>,
+    private productRepository: Repository<Product>,
   ) {}
 
   async create(product: ProductCreateData) {
-    const newUser = this.producteRepository.create(product);
-    return this.producteRepository.save(newUser);
+    const newUser = this.productRepository.create(product);
+    return this.productRepository.save(newUser);
   }
 
   async update(id: number, data: ProductUpdateData) {
-    return this.producteRepository.update(id, data);
+    return this.productRepository.update(id, data);
   }
 
   async delete(id: number) {
-    return this.producteRepository.delete(id);
+    return this.productRepository.delete(id);
   }
 
   async get(id: number) {
-    return this.producteRepository.findOne({ where: { id } });
+    return this.productRepository.findOne({ where: { id } });
   }
 
   async getByName(name: string) {
-    return this.producteRepository.findOne({ where: { name } });
+    return this.productRepository.findOne({ where: { name } });
   }
 
   async getAll() {
-    return this.producteRepository.find();
+    return this.productRepository.find();
   }
 }

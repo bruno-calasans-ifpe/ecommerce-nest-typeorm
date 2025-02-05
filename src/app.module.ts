@@ -7,6 +7,8 @@ import { AddressModule } from './address/address.module';
 import { ProductModule } from './product/product.module';
 import { OrderModule } from './order/product.module';
 import { ItemOrderModule } from './item_order/item_order.module';
+import { ProductCategoryModule } from './product_category/product_category.module';
+import { ProductCategoryService } from './product_category/product_category.service';
 
 @Module({
   imports: [
@@ -25,6 +27,7 @@ import { ItemOrderModule } from './item_order/item_order.module';
     ProductModule,
     OrderModule,
     ItemOrderModule,
+    ProductCategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
