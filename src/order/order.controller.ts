@@ -13,10 +13,14 @@ import { InternalServerError } from 'src/errors/InternalServerErrorError';
 import { NotFoundError } from 'src/errors/NotFoundError';
 import { ConflictError } from 'src/errors/ConflictError';
 import { NotModifiedError } from 'src/errors/NotModifiedError';
+import { AddressService } from 'src/address/address.service';
 
 @Controller('order')
 export class OrderController {
-  constructor(private readonly orderService: OrderService) {}
+  constructor(
+    private readonly orderService: OrderService,
+    private readonly addressService: AddressService,
+  ) {}
 
   @Get()
   getAllOrders() {

@@ -1,5 +1,5 @@
 
-# GET http://localhost:3000/address
+GET http://localhost:3000/address
 
 
 # GET http://localhost:3000/address/1
@@ -8,11 +8,11 @@
 # Content-Type: application/json
 
 # {
-#   "street": "Rua das Manguapas",
-#   "state": "Pernambuco",
-#   "district": "Recife",
-#   "complement": "Perto do seu cu",
-#   "zipCode": "1231315"
+#     "street": "Rua das Manguapas",
+#     "state": "Pernambuco",
+#     "district": "Recife",
+#     "complement": "Perto do seu cu",
+#     "zipCode": "1231315"
 # }
 
 # PUT  http://localhost:3000/address/1
@@ -23,6 +23,6 @@
 # }
 
 
-DELETE   http://localhost:3000/address/1
+# DELETE   http://localhost:3000/address/1
 
 

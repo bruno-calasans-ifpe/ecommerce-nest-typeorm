@@ -1,4 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Client } from 'src/client/client.entity';
+import { Order } from 'src/order/order.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  OneToOne,
+} from 'typeorm';
 
 @Entity()
 export class Address {
@@ -19,4 +27,13 @@ export class Address {
 
   @Column()
   zipCode: string;
+
+  @OneToMany(() => Order, (order) => order.address, {
+    cascade: true,
+    eager: false,
+  })
+  orders: Order[];
+
+  @OneToOne(() => Client, (client) => client.address)
+  client: Client;
 }

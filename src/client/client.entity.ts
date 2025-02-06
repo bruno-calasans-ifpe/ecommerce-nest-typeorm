@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Address } from 'src/address/address.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToOne,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity()
 export class Client {
@@ -22,4 +29,12 @@ export class Client {
 
   @Column()
   birth: Date;
+
+  @OneToOne(() => Address, (address) => address.client, {
+    cascade: true,
+    eager: false,
+    nullable: false,
+  })
+  @JoinColumn({ name: 'address_id' })
+  address: Address;
 }

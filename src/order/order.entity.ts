@@ -1,5 +1,13 @@
+import { Address } from 'src/address/address.entity';
 import { ItemOrder } from 'src/item_order/item_order.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity()
 export class Order {
@@ -17,4 +25,12 @@ export class Order {
     eager: false,
   })
   itemOrders: ItemOrder[];
+
+  @ManyToOne(() => Address, (address) => address.orders, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  @JoinColumn({ name: 'address_id' })
+  address: Address;
 }
