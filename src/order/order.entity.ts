@@ -1,4 +1,5 @@
 import { Address } from 'src/address/address.entity';
+import { Client } from 'src/client/client.entity';
 import { ItemOrder } from 'src/item_order/item_order.entity';
 import {
   Entity,
@@ -33,4 +34,12 @@ export class Order {
   })
   @JoinColumn({ name: 'address_id' })
   address: Address;
+
+  @ManyToOne(() => Client, (client) => client.orders, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  @JoinColumn({ name: 'client_id' })
+  client: Client;
 }

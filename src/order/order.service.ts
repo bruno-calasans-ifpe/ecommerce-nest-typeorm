@@ -27,11 +27,13 @@ export class OrderService {
   async get(id: number) {
     return this.ordereRepository.findOne({
       where: { id },
-      relations: { itemOrders: true },
+      relations: { itemOrders: true, client: true, address: true },
     });
   }
 
   async getAll() {
-    return this.ordereRepository.find({ relations: { itemOrders: true } });
+    return this.ordereRepository.find({
+      relations: { itemOrders: true, client: true, address: true },
+    });
   }
 }

@@ -8,11 +8,11 @@ GET http://localhost:3000/address
 # Content-Type: application/json
 
 # {
-#     "street": "Rua das Manguapas",
-#     "state": "Pernambuco",
-#     "district": "Recife",
-#     "complement": "Perto do seu cu",
-#     "zipCode": "1231315"
+#     "street": "Rua dos Corons",
+#     "state": "Cornolândia",
+#     "district": "Corninho",
+#     "complement": "Perto do Bar dos Cornos",
+#     "zipCode": "1312312"
 # }
 
 # PUT  http://localhost:3000/address/1

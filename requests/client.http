@@ -1,5 +1,5 @@
 
-# GET http://localhost:3000/client
+GET http://localhost:3000/client
 
 
 # GET http://localhost:3000/client/1
@@ -8,13 +8,13 @@
 # Content-Type: application/json
 
 # {
-#   "name": "carlos",
-#   "login": "carlos_gay",
+#   "name": "marcos",
+#   "login": "marcos_gayzudo",
 #   "password": "1234131",
-#   "email": "carlos_gay@email.com",
-#   "tel": "81912345678",
+#   "email": "marcos_gayzudo@email.com",
+#   "tel": "131313131",
 #   "birth": "01/01/2005", 
-#   "address_id": 1
+#   "address_id": 2
 # }
 
 # PUT  http://localhost:3000/client/1
